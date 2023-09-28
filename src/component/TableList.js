@@ -157,8 +157,8 @@ const TableList = ({ data }) => {
             onChange={handleFilter}
             className="border py-[2px] border-black w-[150px] md:w-[170px] lg:w-[250px] sm:h-[25px] md:h-[45px] rounded-lg px-3 "
           >
-            {data?.map((value) => {
-              return <option value={value.name}>{value.name}</option>;
+            {data?.map((value,index) => {
+              return <option value={value.name} key={index}>{value.name}</option>;
             })}
           </select>
         </div>
@@ -171,9 +171,9 @@ const TableList = ({ data }) => {
             onChange={currencyFilter}
             className="border py-[2px] border-black w-[150px] md:w-[170px] lg:w-[250px] sm:h-[25px] md:h-[45px] rounded-lg md:px-3 mx-3 "
           >
-            {filteredCurrency?.map((value) => {
+            {filteredCurrency?.map((value,index) => {
               return (
-                <option className="h-[50%]" value={value.currency}>
+                <option className="h-[50%]" value={value.currency} key={index}>
                   {value.currency}
                 </option>
               );
@@ -188,9 +188,9 @@ const TableList = ({ data }) => {
             className="border border-black w-[150px] md:w-[170px] lg:w-[250px] sm:h-[25px] md:h-[45px] rounded-lg px-3 py-1 "
           >
             {data?.map((value) => {
-              return value?.languages?.map((item) => {
+              return value?.languages?.map((item,index) => {
                 return (
-                  <option className="h-[50%]" value={item.name}>
+                  <option className="h-[50%]" value={item.name} key={index}>
                     {item.name}
                   </option>
                 );
@@ -202,7 +202,7 @@ const TableList = ({ data }) => {
         <button
           type="button"
           onClick={onClear}
-          class="text-white bg-orange-500 font-medium rounded-lg text-sm px-8 py-3 md:ml-8 "
+          className="text-white bg-orange-500 font-medium rounded-lg text-sm px-8 py-3 md:ml-8 "
         >
           CLEAR
         </button>
@@ -321,7 +321,7 @@ const TableList = ({ data }) => {
                       className={`truncate   text-[black] px-6  py-4 font-medium  whitespace-nowrap dark:text-white`}
                     >
                       {item?.languages?.map((lang, index) => (
-                        <h1 className="whitespace-nowrap">
+                        <h1 className="whitespace-nowrap" key={index}>
                           {index + 1}. {lang?.name}
                         </h1>
                       ))}

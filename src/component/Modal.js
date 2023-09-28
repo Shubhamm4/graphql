@@ -37,7 +37,7 @@ const Modals = ({
           <h1 className=" text-[20px] font-semibold  ">Language</h1>
           <div className="">
             {language?.map((item, index) => (
-              <h1 className=" text-[18px] font-normal ">{index + 1}. {item?.name}</h1>
+              <h1 className=" text-[18px] font-normal " key={index}>{index + 1}. {item?.name}</h1>
             ))}
           </div>
         </div>
